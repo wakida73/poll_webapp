@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 投票アプリ
 
-Things you may want to cover:
+# 対象者
+- 投票で何かを決めたい人
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 機能
+- ログイン
+- 新規ユーザー登録
+- 投票箱の作成
+- 投票
