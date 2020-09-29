@@ -14,13 +14,5 @@ class User < ApplicationRecord
         :recoverable, :rememberable, :validatable,
         :confirmable, :lockable, :timeoutable
 
-  #before_action  :build_default_group_users
-  #private
-  #  def build_default_group_users
-  #    build_group_users
-  #    true
-  #end
-
-  
 
 end

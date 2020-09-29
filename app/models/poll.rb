@@ -8,12 +8,6 @@ class Poll < ApplicationRecord
   validates :title, presence: true,length: { in: 1..50 } 
   validates :started_at, presence: true
   validates :ended_at, presence: true
-  # validate :start_end_check
-
-  # def start_end_check
-  #   errors.add(:ended_at, "の日付を正しく記入してください。") unless
-  #   self.started_at < self.ended_at
-  # end
   validate :start_check
   validate :before_check
 
