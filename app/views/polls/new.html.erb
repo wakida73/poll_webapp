@@ -1,0 +1,31 @@
+<% if user_signed_in? %>
+<h1>投票箱新規作成</h1>
+<%= form_with(model: @poll,local: true) do |f| %>
+<% @poll.errors.full_messages.each do |message| %>
+<p><%= message %></p>
+<% end %>
+<%= f.label :title,'投票箱名' %>
+<%= f.text_field :title,class: "form-control" %><br />
+
+<%= f.label :title,'概要' %>
+<%= f.text_field :description,class: "form-control" %><br />
+
+<%= f.label :started_at,'開始時間' %>
+<%= f.datetime_field :started_at,class: "form-control" %><br />
+
+<%= f.label :ended_at,'終了時間' %>
+<%= f.datetime_field :ended_at,class: "form-control" %><br />
+
+<%= f.fields_for :lists do |li| %>
+<%= render 'list_fields', f: li %>
+<% end %>
+<div class="links">
+  <%= link_to_add_association '追加', f, :lists %>
+</div>
+
+
+<%= f.submit '作成', class:"btn btn-primary" %>
+<%= link_to "Back", :back %>
+<% end %>
+
+<% end %>

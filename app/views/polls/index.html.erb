@@ -1,0 +1,26 @@
+<% if user_signed_in? %>
+
+<h2>投票箱一覧</h2>
+<p class="nomal-button"><%= link_to '投票箱つくる', poll_new_path %></p>
+<div class="polls">
+  <% @polls.each do |poll| %>
+  <div class="poll">
+    <h3><%= poll.title %></h3>
+    <p><%= poll.description %></p>
+    <span><%= poll.started_at.strftime("%m月%d日 %H:%M") %></span>
+    <span>～</span>
+    <span><%= poll.ended_at.strftime("%m月%d日 %H:%M") %></span>
+
+    <% poll.lists.each do |list| %>
+    <ul>
+      <li><%= list.text %></li>
+    </ul>
+
+    <% end %>
+    <p class="poll-button"><%= link_to '投票する', poll_path(poll.id) %></p>
+  </div>
+  <% end %>
+</div>
+<% else %>
+<p>ログインしてください。</p>
+<% end %>

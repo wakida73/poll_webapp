@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Poll</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <div id="wrapper">
+    <header>
+      <div class="header-inner">
+        <nav>
+          <% if user_signed_in? %>
+          <%= link_to 'プロフィール変更', edit_user_registration_path %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+          <% else %>
+          <%= link_to '新規登録', new_user_registration_path %>
+          <%= link_to 'ログイン', new_user_session_path %>
+          <% end %>
+        </nav>
+        <p><%= link_to 'PollApp', '/' %></p>
+      </div>
+    </header>
+    <main>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <%= yield %>
+    </main>
+    <footer>
+      <p><small>&copy;&ensp;2020&ensp;わきだ</small></p>
+    </footer>
+  </div>
+</body>
+
+</html>

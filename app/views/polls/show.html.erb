@@ -1,0 +1,25 @@
+<% if user_signed_in? %>
+<div class="pollBox">
+  <h2><%= @poll.title %></h2>
+  <p><%= @poll.description %></p>
+  <% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+  <% end %>
+
+  <ul class="polling">
+    <% @poll.lists.each do |list| %>
+    <li>
+      <p><%= list.text %>&emsp;<span><%= list.count %>票</span></p>
+      <%= button_to "投票する", poll_list_path(list.poll_id, list.id),:class=>'poll-go-button', method: :put ,data: {confirm: "投票は一人一票までですが投票しますか？"}%>
+    </li>
+    <% end %>
+  </ul>
+</div>
+<p><%= button_to "削除", poll_path(@poll.id), method: :delete ,:class=>'delete-button' %></p>
+<p><%= link_to  "一覧に戻る" , '/' %></p>
+
+<% else %>
+<p>ログインしてください。</p>
+
+
+<% end %>
