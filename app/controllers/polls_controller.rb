@@ -1,7 +1,6 @@
 class PollsController < ApplicationController
   def index
     @polls = Poll.where("ended_at > ?", DateTime.now)
-    
   end
 
   def show
